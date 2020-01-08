@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>永远不要停止奔跑</title>
+  <title>Tag: Spring | 永远不要停止奔跑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="做一个像拉拉穆里奔跑的人">
 <meta property="og:type" content="website">
 <meta property="og:title" content="永远不要停止奔跑">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/Spring/index.html">
 <meta property="og:site_name" content="永远不要停止奔跑">
 <meta property="og:description" content="做一个像拉拉穆里奔跑的人">
 <meta property="og:locale" content="zh_TW">
@@ -158,215 +158,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Spring-BeanUtils忽略空值拷贝用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/">Spring-BeanUtils忽略空值拷贝用法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/08/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-01-08T10:34:10.662Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        
-      </header>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>title: Spring BeanUtils忽略空值拷贝用法<br>date: 2020-01-07 18:30:00<br>categories:  </p>
-<ul>
-<li>技术<br>tag: </li>
-<li>Spring</li>
-<li>Java</li>
-</ul>
-<p>comments: true</p>
-<p>###常用用法</p>
-<blockquote>
-<p>注意：常用BeanUtils类由两个包提供</p>
-</blockquote>
-<p>org.apache.commons.beanutils.BeanUtils、org.springframework.beans.BeanUtils，我们使用的是后者即Spring提供的，如果使用Apache要注意拷贝对象参数位置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target);</span><br></pre></td></tr></table></figure>
-<h3 id="忽略某些字段拷贝"><a href="#忽略某些字段拷贝" class="headerlink" title="忽略某些字段拷贝"></a>忽略某些字段拷贝</h3><blockquote>
-<p>忽略拷贝 id、time字段</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, &quot;id&quot;, &quot;time&quot;);</span><br></pre></td></tr></table></figure>
-<h3 id="忽略空值拷贝"><a href="#忽略空值拷贝" class="headerlink" title="忽略空值拷贝"></a>忽略空值拷贝</h3><blockquote>
-<p>常用于拷贝DTO对象属性到实体类，实体类中部分字段有设置默认值，即可以不将DTO中的空值拷贝过来，保持原有默认值</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, getNullPropertyNames(source));</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static String[] getNullPropertyNames(Object source) &#123;</span><br><span class="line">        final BeanWrapper src &#x3D; new BeanWrapperImpl(source);</span><br><span class="line">        java.beans.PropertyDescriptor[] pds &#x3D; src.getPropertyDescriptors();</span><br><span class="line">        Set emptyNames &#x3D; new HashSet();</span><br><span class="line">        for(java.beans.PropertyDescriptor pd : pds) &#123;</span><br><span class="line">            &#x2F;&#x2F;check if value of this property is null then add it to the collection</span><br><span class="line">            Object srcValue &#x3D; src.getPropertyValue(pd.getName());</span><br><span class="line">            if (srcValue &#x3D;&#x3D; null) &#123;</span><br><span class="line">                emptyNames.add(pd.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] result &#x3D; new String[emptyNames.size()];</span><br><span class="line">        return (String[]) emptyNames.toArray(result);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
+    
       
       
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/08/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mysql-order-by-limit获取重复数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+        <div class="archives">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/Mysql-order-by-limit%E8%8E%B7%E5%8F%96%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE/">Mysql order by limit获取重复数据</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/08/Mysql-order-by-limit%E8%8E%B7%E5%8F%96%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-  	<time datetime="2020-01-08T10:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>根据字段排序并分页获取数据，多页返回<strong>重复数据</strong></p>
-<p>order by status asc limit from,offset</p>
-<p>最后发现status字段的值多数为空，不具有唯一性</p>
-<p>改成加上具有唯一性字段排序：</p>
-<p>order by status,<strong>id</strong> asc limit from,offset</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Mysql//" class="article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/08/Mysql-order-by-limit%E8%8E%B7%E5%8F%96%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-Bean的作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/07/Spring-Bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">Spring Bean的作用域</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/07/Spring-Bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="archive-article-date">
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/01/07/Spring-Bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="archive-article-date">
   	<time datetime="2020-01-07T10:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在默认情况下，Spring上下文中所有bean都是以单例形式创建的，也就是说无论给定的bean被注入到其他bean多少次，每次所注入的都是同一个实例。<br>大多数情况，单例bean是很理想的方案，但是有些时候要使用的类是易变的，它们会保持一定状态，因此重用是不安全的。<br>Spring定义了多种作用域，可以基于这些作用域创建bean,它包括：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/24/16e9cfd96f26d5a3?w=1559&h=389&f=png&s=263512" alt=""><br>单例：默认实现方式。其他作用域类型可以添加@Scope注解指定<br>在配置类中使用@Bean注解，或在类上添加@Component注解等</p>
-<p>原型：<br><img src="https://user-gold-cdn.xitu.io/2019/11/24/16e9cfecd82b0d18?w=1041&h=214&f=png&s=67865" alt=""></p>
-<p>会话和请求作用域：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/24/16e9d021dfa54e34?w=1202&h=234&f=png&s=84652" alt=""></p>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/01/07/Spring-Bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">Spring Bean的作用域</a>
+    </h1>
+  
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -382,7 +201,7 @@
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -395,158 +214,17 @@
 	</div>
 
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/07/Spring-Bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-Spark概念和用途初识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/07/Spark%E6%A6%82%E5%BF%B5%E5%92%8C%E7%94%A8%E9%80%94%E5%88%9D%E8%AF%86/">Spark的概念和用途初识</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/07/Spark%E6%A6%82%E5%BF%B5%E5%92%8C%E7%94%A8%E9%80%94%E5%88%9D%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2020-01-07T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##什么是Spark##</p>
-<p>Spark是一个用来实现快速而通用的集群计算的平台。</p>
-<p>Spark项目包含多个紧密集成的组件，Spark的核心是一个对由很多计算任务组成的、运行在多个工作机器或者是一个计算集群上的应用进行调度、分发以及监控的计算引擎。</p>
-<p>Spark软件栈：<br><strong>Spark的用户和用途</strong></p>
-<ul>
-<li>数据科学任务：将数据转换为更方便分析和观察的格式</li>
-<li>数据处理应用：使用Spark开发生产环境中的数据处理应用</li>
-</ul>
-<p><strong>Spark下载使用</strong></p>
-<p>下载地址：<a href="">http://spark.apache.org/downloads.html</a></p>
-<ul>
-<li>Spark本身是用Scala写的，运行在Java虚拟机（JVM）上，要准备好java环境，如需使用Python接口，则需要准备Python环境</li>
-<li>解压后，执行bin/pyspark启动PySpark shell</li>
-<li>使用shell从本地文本文件创建一个RDD(弹性分布式数据集)来做一个简单的统计<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lines &#x3D; sc.textFile(&quot;README.md&quot;) # 创建一个名为lines的RDD</span><br><span class="line">&gt;&gt;&gt; lines.count() # 统计RDD中的元素个数</span><br><span class="line">127</span><br><span class="line">&gt;&gt;&gt; lines.first() # 这个RDD中的第一个元素，也就是README.md的第一行</span><br><span class="line">u&#39;# Apache Spark&#39;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<blockquote>
-<p>Spark能够在工作节点把数据读取到内存中，所以许多分布式计算都可以在几秒内完成，哪怕是那种在十几个节点上处理TB级别的数据的计算</p>
-</blockquote>
-<p><strong>Spark核心概念</strong></p>
-<ul>
-<li>从上层来看，每个Spark应用都由一个驱动器程序来发起集群上的各种并行操作，驱动器程序应包含应用的main函数，并且定义了集群上的分布式数据集，还对这些分布式数据集应用了相关操作</li>
-<li>驱动器程序通过一个SparkContext对象来访问Spark，这个对象代表对计算集群的一个连接，即Shell启动的时候已经自动创建了一个SparkContext对象，是一个叫作src的变量</li>
-<li>一旦有了SparkContext，就可以用它创建RDD，然后进行并行操作</li>
-</ul>
-<hr>
-<p>对Spark有了粗浅的认识和理解，期待下次的小实践！</p>
-<blockquote>
-<p>摘自：<a href="">Spark快速大数据分析</a></p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spark</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/07/Spark%E6%A6%82%E5%BF%B5%E5%92%8C%E7%94%A8%E9%80%94%E5%88%9D%E8%AF%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -568,10 +246,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
