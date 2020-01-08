@@ -158,93 +158,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Spring-BeanUtils忽略空值拷贝用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/">Spring-BeanUtils忽略空值拷贝用法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/08/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-01-08T10:34:10.662Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>title: Spring BeanUtils忽略空值拷贝用法<br>date: 2020-01-07 18:30:00<br>categories:  </p>
-<ul>
-<li>技术<br>tag: </li>
-<li>Spring</li>
-<li>Java</li>
-</ul>
-<p>comments: true</p>
-<p>###常用用法</p>
-<blockquote>
-<p>注意：常用BeanUtils类由两个包提供</p>
-</blockquote>
-<p>org.apache.commons.beanutils.BeanUtils、org.springframework.beans.BeanUtils，我们使用的是后者即Spring提供的，如果使用Apache要注意拷贝对象参数位置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target);</span><br></pre></td></tr></table></figure>
-<h3 id="忽略某些字段拷贝"><a href="#忽略某些字段拷贝" class="headerlink" title="忽略某些字段拷贝"></a>忽略某些字段拷贝</h3><blockquote>
-<p>忽略拷贝 id、time字段</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, &quot;id&quot;, &quot;time&quot;);</span><br></pre></td></tr></table></figure>
-<h3 id="忽略空值拷贝"><a href="#忽略空值拷贝" class="headerlink" title="忽略空值拷贝"></a>忽略空值拷贝</h3><blockquote>
-<p>常用于拷贝DTO对象属性到实体类，实体类中部分字段有设置默认值，即可以不将DTO中的空值拷贝过来，保持原有默认值</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, getNullPropertyNames(source));</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static String[] getNullPropertyNames(Object source) &#123;</span><br><span class="line">        final BeanWrapper src &#x3D; new BeanWrapperImpl(source);</span><br><span class="line">        java.beans.PropertyDescriptor[] pds &#x3D; src.getPropertyDescriptors();</span><br><span class="line">        Set emptyNames &#x3D; new HashSet();</span><br><span class="line">        for(java.beans.PropertyDescriptor pd : pds) &#123;</span><br><span class="line">            &#x2F;&#x2F;check if value of this property is null then add it to the collection</span><br><span class="line">            Object srcValue &#x3D; src.getPropertyValue(pd.getName());</span><br><span class="line">            if (srcValue &#x3D;&#x3D; null) &#123;</span><br><span class="line">                emptyNames.add(pd.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] result &#x3D; new String[emptyNames.size()];</span><br><span class="line">        return (String[]) emptyNames.toArray(result);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/08/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Mysql-order-by-limit获取重复数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -305,6 +218,111 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/01/08/Mysql-order-by-limit%E8%8E%B7%E5%8F%96%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Spring-BeanUtils忽略空值拷贝用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/">Spring BeanUtils忽略空值拷贝用法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-01-07T10:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>###常用用法</p>
+<blockquote>
+<p>注意：常用BeanUtils类由两个包提供</p>
+</blockquote>
+<p>org.apache.commons.beanutils.BeanUtils、org.springframework.beans.BeanUtils，我们使用的是后者即Spring提供的，如果使用Apache要注意拷贝对象参数位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target);</span><br></pre></td></tr></table></figure>
+<h3 id="忽略某些字段拷贝"><a href="#忽略某些字段拷贝" class="headerlink" title="忽略某些字段拷贝"></a>忽略某些字段拷贝</h3><blockquote>
+<p>忽略拷贝 id、time字段</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, &quot;id&quot;, &quot;time&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="忽略空值拷贝"><a href="#忽略空值拷贝" class="headerlink" title="忽略空值拷贝"></a>忽略空值拷贝</h3><blockquote>
+<p>常用于拷贝DTO对象属性到实体类，实体类中部分字段有设置默认值，即可以不将DTO中的空值拷贝过来，保持原有默认值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, getNullPropertyNames(source));</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static String[] getNullPropertyNames(Object source) &#123;</span><br><span class="line">        final BeanWrapper src &#x3D; new BeanWrapperImpl(source);</span><br><span class="line">        java.beans.PropertyDescriptor[] pds &#x3D; src.getPropertyDescriptors();</span><br><span class="line">        Set emptyNames &#x3D; new HashSet();</span><br><span class="line">        for(java.beans.PropertyDescriptor pd : pds) &#123;</span><br><span class="line">            &#x2F;&#x2F;check if value of this property is null then add it to the collection</span><br><span class="line">            Object srcValue &#x3D; src.getPropertyValue(pd.getName());</span><br><span class="line">            if (srcValue &#x3D;&#x3D; null) &#123;</span><br><span class="line">                emptyNames.add(pd.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] result &#x3D; new String[emptyNames.size()];</span><br><span class="line">        return (String[]) emptyNames.toArray(result);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/">展开全文 >></a>
         </p>
       
 
@@ -447,7 +465,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##什么是Spark##</p>
+        <p><em>什么是Spark</em></p>
 <p>Spark是一个用来实现快速而通用的集群计算的平台。</p>
 <p>Spark项目包含多个紧密集成的组件，Spark的核心是一个对由很多计算任务组成的、运行在多个工作机器或者是一个计算集群上的应用进行调度、分发以及监控的计算引擎。</p>
 <p>Spark软件栈：<br><strong>Spark的用户和用途</strong></p>
