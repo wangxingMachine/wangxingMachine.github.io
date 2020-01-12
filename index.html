@@ -61,8 +61,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
-	        
 				<li><a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></li>
 	        
 			</ul>
@@ -85,7 +83,7 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="/wangxingmachine@gmail.com" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/wangxingMachine" title="github"><i class="icon-github"></i></a>
 		        
 					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 		        
@@ -121,14 +119,12 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="/wangxingmachine@gmail.com" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/wangxingMachine" title="github"><i class="icon-github"></i></a>
 			        
 						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
 			        
@@ -140,14 +136,12 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 70%">
+				<ul style="width: 50%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
-		        
-					<li style="width: 33.333333333333336%"><a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></li>
+					<li style="width: 50%"><a href="/tags/%E6%8A%80%E6%9C%AF/">技术</a></li>
 		        
 				</ul>
 			</nav>
@@ -224,203 +218,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/01/08/Mysql-order-by-limit%E8%8E%B7%E5%8F%96%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-BeanUtils忽略空值拷贝用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/">Spring BeanUtils忽略空值拷贝用法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-01-07T10:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="常用用法"><a href="#常用用法" class="headerlink" title="常用用法"></a>常用用法</h3><blockquote>
-<p>注意：常用BeanUtils类由两个包提供</p>
-</blockquote>
-<p>org.apache.commons.beanutils.BeanUtils、org.springframework.beans.BeanUtils，我们使用的是后者即Spring提供的，如果使用Apache要注意拷贝对象参数位置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target);</span><br></pre></td></tr></table></figure>
-<h3 id="忽略某些字段拷贝"><a href="#忽略某些字段拷贝" class="headerlink" title="忽略某些字段拷贝"></a>忽略某些字段拷贝</h3><blockquote>
-<p>忽略拷贝 id、time字段</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, &quot;id&quot;, &quot;time&quot;);</span><br></pre></td></tr></table></figure>
-<h3 id="忽略空值拷贝"><a href="#忽略空值拷贝" class="headerlink" title="忽略空值拷贝"></a>忽略空值拷贝</h3><blockquote>
-<p>常用于拷贝DTO对象属性到实体类，实体类中部分字段有设置默认值，即可以不将DTO中的空值拷贝过来，保持原有默认值</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, getNullPropertyNames(source));</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static String[] getNullPropertyNames(Object source) &#123;</span><br><span class="line">        final BeanWrapper src &#x3D; new BeanWrapperImpl(source);</span><br><span class="line">        java.beans.PropertyDescriptor[] pds &#x3D; src.getPropertyDescriptors();</span><br><span class="line">        Set emptyNames &#x3D; new HashSet();</span><br><span class="line">        for(java.beans.PropertyDescriptor pd : pds) &#123;</span><br><span class="line">            &#x2F;&#x2F;check if value of this property is null then add it to the collection</span><br><span class="line">            Object srcValue &#x3D; src.getPropertyValue(pd.getName());</span><br><span class="line">            if (srcValue &#x3D;&#x3D; null) &#123;</span><br><span class="line">                emptyNames.add(pd.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] result &#x3D; new String[emptyNames.size()];</span><br><span class="line">        return (String[]) emptyNames.toArray(result);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Spring-Bean的作用域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/07/Spring-Bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">Spring Bean的作用域</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/07/Spring-Bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/" class="archive-article-date">
-  	<time datetime="2020-01-07T10:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在默认情况下，Spring上下文中所有bean都是以单例形式创建的，也就是说无论给定的bean被注入到其他bean多少次，每次所注入的都是同一个实例。<br>大多数情况，单例bean是很理想的方案，但是有些时候要使用的类是易变的，它们会保持一定状态，因此重用是不安全的。<br>Spring定义了多种作用域，可以基于这些作用域创建bean,它包括：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/24/16e9cfd96f26d5a3?w=1559&h=389&f=png&s=263512" alt=""><br>单例：默认实现方式。其他作用域类型可以添加@Scope注解指定<br>在配置类中使用@Bean注解，或在类上添加@Component注解等</p>
-<p>原型：<br><img src="https://user-gold-cdn.xitu.io/2019/11/24/16e9cfecd82b0d18?w=1041&h=214&f=png&s=67865" alt=""></p>
-<p>会话和请求作用域：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/24/16e9d021dfa54e34?w=1202&h=234&f=png&s=84652" alt=""></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/07/Spring-Bean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F/">展开全文 >></a>
         </p>
       
 
@@ -671,14 +468,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -760,7 +549,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Java</div>
   	  	
     	</section>
     
