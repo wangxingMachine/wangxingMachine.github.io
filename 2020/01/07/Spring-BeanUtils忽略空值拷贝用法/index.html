@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 永远不要停止奔跑</title>
+  <title>Spring BeanUtils忽略空值拷贝用法 | 永远不要停止奔跑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做一个像拉拉穆里奔跑的人">
-<meta property="og:type" content="website">
-<meta property="og:title" content="永远不要停止奔跑">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="常用用法 注意：常用BeanUtils类由两个包提供  org.apache.commons.beanutils.BeanUtils、org.springframework.beans.BeanUtils，我们使用的是后者即Spring提供的，如果使用Apache要注意拷贝对象参数位置。 1BeanUtils.copyProperties(source, target); 忽略某些字段拷贝 忽略拷">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring BeanUtils忽略空值拷贝用法">
+<meta property="og:url" content="http://yoursite.com/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/index.html">
 <meta property="og:site_name" content="永远不要停止奔跑">
-<meta property="og:description" content="做一个像拉拉穆里奔跑的人">
+<meta property="og:description" content="常用用法 注意：常用BeanUtils类由两个包提供  org.apache.commons.beanutils.BeanUtils、org.springframework.beans.BeanUtils，我们使用的是后者即Spring提供的，如果使用Apache要注意拷贝对象参数位置。 1BeanUtils.copyProperties(source, target); 忽略某些字段拷贝 忽略拷">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-01-07T10:30:00.000Z">
+<meta property="article:modified_time" content="2020-01-08T10:58:05.078Z">
 <meta property="article:author" content="永远不要停止奔跑">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="spark">
-<meta property="article:tag" content="奔跑">
-<meta property="article:tag" content="run">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="永远不要停止奔跑" type="application/atom+xml">
@@ -156,85 +156,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Spring-BeanUtils忽略空值拷贝用法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/08/Mysql-order-by-limit%E8%8E%B7%E5%8F%96%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-  	<time datetime="2020-01-08T10:24:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/08/Mysql-order-by-limit%E8%8E%B7%E5%8F%96%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE/">Mysql order by limit获取重复数据</a>
+    <h1 class="article-title" itemprop="name">
+      Spring BeanUtils忽略空值拷贝用法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Mysql//" class="article-tag-list-link color1">Mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/" class="archive-article-date">
+        
+        <a href="/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/" class="archive-article-date">
   	<time datetime="2020-01-07T10:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/">Spring BeanUtils忽略空值拷贝用法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="常用用法"><a href="#常用用法" class="headerlink" title="常用用法"></a>常用用法</h3><blockquote>
+<p>注意：常用BeanUtils类由两个包提供</p>
+</blockquote>
+<p>org.apache.commons.beanutils.BeanUtils、org.springframework.beans.BeanUtils，我们使用的是后者即Spring提供的，如果使用Apache要注意拷贝对象参数位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target);</span><br></pre></td></tr></table></figure>
+<h3 id="忽略某些字段拷贝"><a href="#忽略某些字段拷贝" class="headerlink" title="忽略某些字段拷贝"></a>忽略某些字段拷贝</h3><blockquote>
+<p>忽略拷贝 id、time字段</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, &quot;id&quot;, &quot;time&quot;);</span><br></pre></td></tr></table></figure>
+<h3 id="忽略空值拷贝"><a href="#忽略空值拷贝" class="headerlink" title="忽略空值拷贝"></a>忽略空值拷贝</h3><blockquote>
+<p>常用于拷贝DTO对象属性到实体类，实体类中部分字段有设置默认值，即可以不将DTO中的空值拷贝过来，保持原有默认值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BeanUtils.copyProperties(source, target, getNullPropertyNames(source));</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static String[] getNullPropertyNames(Object source) &#123;</span><br><span class="line">        final BeanWrapper src &#x3D; new BeanWrapperImpl(source);</span><br><span class="line">        java.beans.PropertyDescriptor[] pds &#x3D; src.getPropertyDescriptors();</span><br><span class="line">        Set emptyNames &#x3D; new HashSet();</span><br><span class="line">        for(java.beans.PropertyDescriptor pd : pds) &#123;</span><br><span class="line">            &#x2F;&#x2F;check if value of this property is null then add it to the collection</span><br><span class="line">            Object srcValue &#x3D; src.getPropertyValue(pd.getName());</span><br><span class="line">            if (srcValue &#x3D;&#x3D; null) &#123;</span><br><span class="line">                emptyNames.add(pd.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        String[] result &#x3D; new String[emptyNames.size()];</span><br><span class="line">        return (String[]) emptyNames.toArray(result);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>遇见都是缘分~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -250,7 +236,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -263,70 +249,146 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/07/Spark%E6%A6%82%E5%BF%B5%E5%92%8C%E7%94%A8%E9%80%94%E5%88%9D%E8%AF%86/" class="archive-article-date">
-  	<time datetime="2020-01-07T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-07</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/01/08/Mysql-order-by-limit%E8%8E%B7%E5%8F%96%E9%87%8D%E5%A4%8D%E6%95%B0%E6%8D%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Mysql order by limit获取重复数据
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/07/Spark%E6%A6%82%E5%BF%B5%E5%92%8C%E7%94%A8%E9%80%94%E5%88%9D%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spark的概念和用途初识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/07/Spark%E6%A6%82%E5%BF%B5%E5%92%8C%E7%94%A8%E9%80%94%E5%88%9D%E8%AF%86/">Spark的概念和用途初识</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spark</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/技术//" class="article-tag-list-link color3">技术</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#常用用法"><span class="toc-number">1.</span> <span class="toc-text">常用用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#忽略某些字段拷贝"><span class="toc-number">2.</span> <span class="toc-text">忽略某些字段拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#忽略空值拷贝"><span class="toc-number">3.</span> <span class="toc-text">忽略空值拷贝</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+  
+  <div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Spring-BeanUtils忽略空值拷贝用法" data-title="Spring BeanUtils忽略空值拷贝用法" data-url="http://yoursite.com/2020/01/07/Spring-BeanUtils%E5%BF%BD%E7%95%A5%E7%A9%BA%E5%80%BC%E6%8B%B7%E8%B4%9D%E7%94%A8%E6%B3%95/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -349,8 +411,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
